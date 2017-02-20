@@ -32,7 +32,7 @@ class bigtop_toolchain::gradle {
 
   file {'/usr/local/gradle':
     ensure  => link,
-    target  => "/usr/local/${gradle}/bin/gradle",
+    target  => "/usr/local/${gradle}",
     require => Exec["/usr/bin/unzip -x -o /usr/src/${gradle}-bin.zip"],
   }
 }
