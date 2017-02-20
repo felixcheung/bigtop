@@ -34,7 +34,13 @@ class bigtop_toolchain::node {
 
   file { "/usr/local/node":
     ensure  => link,
-    target  => "/usr/local/${node_name}",
+    target  => "/usr/local/${node_name}/bin/node",
+    require => Exec["get node"],
+  }
+
+  file { "/usr/local/npm":
+    ensure  => link,
+    target  => "/usr/local/${node_name}/bin/npm",
     require => Exec["get node"],
   }
 
