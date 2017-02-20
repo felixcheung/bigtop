@@ -35,4 +35,10 @@ class bigtop_toolchain::maven {
     target  => "/usr/local/$mvn",
     require => Exec["/bin/tar xvzf /usr/src/$mvn-bin.tar.gz"],
   }
+
+  file {'/usr/local/mvn':
+    ensure  => link,
+    target  => "/usr/local/$mvn",
+    require => Exec["/bin/tar xvzf /usr/src/$mvn-bin.tar.gz"],
+  }
 }
