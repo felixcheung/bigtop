@@ -29,10 +29,10 @@ class bigtop_toolchain::maven {
     creates     => "/usr/local/$mvn",
     require     => Exec["/usr/bin/wget $apache_prefix/maven/maven-3/$mvnversion/binaries/$mvn-bin.tar.gz"],
   }
-
-  file {'/usr/local/mvn':
+ 
+  file {'/usr/local/maven':
     ensure  => link,
-    target  => "/usr/local/$mvn/bin/mvn",
+    target  => "/usr/local/$mvn",
     require => Exec["/bin/tar xvzf /usr/src/$mvn-bin.tar.gz"],
   }
 }
