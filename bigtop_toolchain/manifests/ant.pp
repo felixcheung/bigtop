@@ -31,7 +31,7 @@ class bigtop_toolchain::ant {
 
   file {'/usr/local/ant':
     ensure  => link,
-    target  => "/usr/local/$ant",
+    target  => "/usr/local/$ant/bin/ant",
     require => Exec["/bin/tar xvzf /usr/src/$ant-bin.tar.gz"],
   }
 }
