@@ -28,15 +28,7 @@ class bigtop_toolchain::jdk {
 
       package { 'openjdk-8-jdk' :
         ensure  => present,
-        # needed for 14.04 
-        require => [ Apt::Ppa[ 'http://ppa.launchpad.net/openjdk-r/ppa/ubuntu'], Class['apt::update'] ]
       }
-
-      apt::key { 'openjdk-ppa':
-        id     => 'eb9b1d8886f44e2a',
-        server => 'keyserver.ubuntu.com'
-      }  ->
-      apt::ppa { 'http://ppa.launchpad.net/openjdk-r/ppa/ubuntu':  }
     }
     /(CentOS|Amazon|Fedora)/: {
       package { 'java-1.8.0-openjdk-devel' :
